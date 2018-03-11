@@ -1,0 +1,36 @@
+-------------------
+	# STRUCTURI DE DATE
+	# Tema 3
+	# Gagea Elena-Miruna
+	# 314CC
+-------------------
+
+	Tema este structurata pe 3 taskuri plus bonus. Are ca obiectiv proiectarea unui algoritm care sa gaseasca cel mai scurt drum posibil intr-un arbore orientat. Pentru aceasta m-am folosit de algoritmul Floyd Warshall datorita simplitatii lui si datorita faptului ca este mai rapid in practica.
+
+	-->TASK 1:
+	* La baza acestui task sta algoritmul Floyd care prelucreaza matricea de costuri(graph) a grafului. Nucleul codului sta in functia floyd() care construieste cele doua matrici path si dist. in prima retinem indicii nodurilor prin care s-a trecut pentru a putea reconstitui drumul minim, iar in a doua costurile drumurilor.
+
+	Pentru modularizare am ales sa folosesc functii care sa ma ajute sa prelucrez aceste rezultate in functie de ce am de facut.
+
+		-- void afiseazaDist( int dist[][n], int N): functie care m-a ajutat pe parcurs sa fac debugging, N este marimea matricei patratice dist (numarul de noduri al grafului);
+		
+		-- void afiseazaDrum(FILE *g, int nod, int path[], int dist[], int track[n], int *k): functie recursiva care reconstituie drumul cel mai scurt cu ajutorul unui vector si anume track e care il va afisa ulterior la nevoie. K este o constanta ce retine numarul de elemente ale vectorului track.
+
+		--void floyd(int graph[][n], int N, int dist[n][n], int path[n][n])
+
+		--void citire(char *fin, int* ID, int* N, int* nrCulAer, int* nrComenzi, int tipPinter[n], int graph[n][n], drum drumuri[n]): functia de citire care ia din fisier toate variabilele si le pune la dispozitie altor functii.
+
+		--void search4Farm(int tipPinter[n], int Farms[n], int N, int *nrFarms): functie care gaseste fermele (in cazul in care sunt mai multe). Farms este vectorul in care sunt retinute valorile nodurilor de tim ferma si nrFarms este constanta care retine numarul de ferme.
+
+		--void cerinta_1(char* fout, int N, int nrCulAer, int nrComenzi, int tipPinter[n], int graph[n][n], drum drumuri[n] ): functie in care sunt apelate toate functiile mentionate mai sus si in care este creeat fisierul de output.
+	-->TASK 2:
+	* Este tratat cazul in care avem mai multe ferme. Logica din spatele rezolvarii este aceea ca dupa fiecare livrare o sa caut ferma catre care drumul este cel mai scurt. 
+	Ca functii, pe langa cele precedente, am folosit urmatoarele:
+	
+	--int esteFerma(int Farms[], int nrFarms, int nod): functie care verifica daca nodul in care sunt este ferma.
+
+	--void fermaMini(int nod, int nodUrmator, int dist[][n], int nrFarms, int Farms[n], int *indxFermMin): aceasta functie cauta drumul cel mai scurt catre o ferma, din nodul nod.
+	
+	--void cerinta_2(char* fout, int N, int nrCulAer, int nrComenzi, int tipPinter[n], int graph[n][n], drum drumuri[n], int fermaStart): functie in care este scris fisierul de output cu ajutorul functiilor explicate mai sus.
+	
+	
